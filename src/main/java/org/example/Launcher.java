@@ -13,7 +13,7 @@ public class Launcher {
         ///MovieRepository movieRepository = new MovieMySqlRepository();
 
         ConsoleController controller = new ConsoleController();
-        controller.addMovie();
+        controller.startAppMenu();
 
 
         // List<Movie> movies = movieRepository.getAllMovies();

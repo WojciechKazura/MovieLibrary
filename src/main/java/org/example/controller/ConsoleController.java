@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import org.example.exception.CloseAppException;
 import org.example.exception.ServiceException;
 import org.example.model.Movie;
 import org.example.service.Service;
@@ -7,60 +8,33 @@ import org.example.service.Service;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ConsoleController {
-    private Service service = new Service();
+public class ConsoleController extends Controller{
+
     private Scanner scanner = new Scanner(System.in);
 
-    void hello() {
-        System.out.println("Witaj urzytkowniku");
+    @Override
+    void showMessage(String message) {
+        System.out.println(message);
     }
 
-    void menu() {
-        System.out.println("Wybierz opcje:");
-
-    }
-
-
-    void start() {
-
-    }
-
-    public void addMovie() {
-        System.out.println("podaj id");
-        int id = scannerInt();
-        System.out.println("podaj tytuł");
-        String title = scannerString();
-        System.out.println("podaj gatunek");
-        String genre = scannerString();
-        System.out.println("podaj rok");
-        int year = scannerInt();
-        Movie movie = new Movie(id, title, genre, year);
-        System.out.println("twój film to " + movie);
-        try{
-            service.addMovie(movie);
-            System.out.println("Zapisano "+movie);
-        }catch (ServiceException e){
-            System.out.println(e.getMessage());
-        }
-
-    }
-
-    private String scannerString() {
+    @Override
+    String readString(String question) throws CloseAppException {
+        showMessage(question);
         return scanner.nextLine();
     }
 
-    private int scannerInt() {
+    @Override
+    int readInt(String question) throws CloseAppException {
         try {
+            showMessage(question);
             int a = scanner.nextInt();
             scanner.nextLine();
             return a;
         } catch (InputMismatchException e) {
-            System.out.println("Nieprawidłowa wartość.");
-            System.out.println("spróbuj ponownie.");
+            showMessage("Nieprawidłowa wartość.");
+            showMessage("spróbuj ponownie.");
             scanner.nextLine();
-            return scannerInt();
+            return readInt(question);
         }
     }
-
-
 }
