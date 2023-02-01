@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.controller.ConsoleController;
+import org.example.controller.GUIController;
 import org.example.model.Movie;
 import org.example.repository.MovieMySqlRepository;
 import org.example.repository.MovieRepository;
@@ -12,8 +13,14 @@ public class Launcher {
     public static void main(String[] args) {
         ///MovieRepository movieRepository = new MovieMySqlRepository();
 
-        ConsoleController controller = new ConsoleController();
-        controller.startAppMenu();
+
+        if(args.length==0||args[0].equals("GUI")){
+            GUIController controller=new GUIController();
+            controller.startAppMenu();
+        }else{
+            ConsoleController controller= new ConsoleController();
+            controller.startAppMenu();
+        }
 
 
         // List<Movie> movies = movieRepository.getAllMovies();
