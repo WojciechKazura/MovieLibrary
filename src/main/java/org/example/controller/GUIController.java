@@ -6,7 +6,6 @@ import org.example.model.Movie;
 import org.example.service.Service;
 
 import javax.swing.*;
-import java.util.InputMismatchException;
 
 public class GUIController extends Controller {
 

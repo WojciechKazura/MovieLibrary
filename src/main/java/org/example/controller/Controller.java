@@ -5,8 +5,6 @@ import org.example.exception.ServiceException;
 import org.example.model.Movie;
 import org.example.service.Service;
 
-import javax.swing.*;
-
 public abstract class Controller {
 
     private Service service = new Service();

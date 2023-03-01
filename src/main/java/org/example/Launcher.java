@@ -2,16 +2,10 @@ package org.example;
 
 import org.example.controller.ConsoleController;
 import org.example.controller.GUIController;
-import org.example.model.Movie;
-import org.example.repository.MovieMySqlRepository;
-import org.example.repository.MovieRepository;
-
-import java.util.List;
-import java.util.Scanner;
 
 public class Launcher {
     public static void main(String[] args) {
-        ///MovieRepository movieRepository = new MovieMySqlRepository();
+        ///MovieRepository movieRepository = new MovieJDBCRepository();
 
 
         if(args.length==0||args[0].equals("GUI")){

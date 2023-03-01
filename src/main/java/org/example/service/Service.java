@@ -2,14 +2,16 @@ package org.example.service;
 
 import org.example.exception.ServiceException;
 import org.example.model.Movie;
-import org.example.repository.MovieMySqlRepository;
+import org.example.repository.MovieHibernateRepository;
+import org.example.repository.MovieJDBCRepository;
+import org.example.repository.MovieRepository;
 
 public class Service {
-    private MovieMySqlRepository movieMySqlRepository = new MovieMySqlRepository();
+    private MovieRepository movieRepository = new MovieHibernateRepository();
 
     public void addMovie(Movie movie) throws ServiceException{
         cheMovie(movie);
-        movieMySqlRepository.addMovie(movie);
+        movieRepository.addMovie(movie);
     }
 
     public void cheMovie(Movie movie) throws ServiceException {

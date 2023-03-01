@@ -2,13 +2,12 @@ package org.example.repository;
 
 import org.example.exception.ServiceException;
 import org.example.model.Movie;
-import org.example.repository.MovieRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieMySqlRepository implements MovieRepository {
+public class MovieJDBCRepository implements MovieRepository {
     @Override
     public List<Movie> getAllMovies() {
         List<Movie> movieList = new ArrayList<>();

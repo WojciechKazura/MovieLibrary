@@ -1,7 +1,15 @@
 package org.example.model;
 
-public class Movie {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table (name="movies")
+public class Movie {
+    @Id
+    @Column(name="movieID")
     private int id;
     private String title;
     private String genre;
@@ -12,6 +20,10 @@ public class Movie {
         this.title = title;
         this.genre = genre;
         this.year = year;
+    }
+
+    public Movie(){
+
     }
 
     public int getId() {
@@ -28,6 +40,10 @@ public class Movie {
 
     public int getYear() {
         return year;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     @Override

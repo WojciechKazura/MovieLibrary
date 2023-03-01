@@ -1,10 +1,5 @@
 package org.example.controller;
 
-import org.example.exception.CloseAppException;
-import org.example.exception.ServiceException;
-import org.example.model.Movie;
-import org.example.service.Service;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -18,13 +13,13 @@ public class ConsoleController extends Controller{
     }
 
     @Override
-    String readString(String question) throws CloseAppException {
+    String readString(String question) {
         showMessage(question);
         return scanner.nextLine();
     }
 
     @Override
-    int readInt(String question) throws CloseAppException {
+    int readInt(String question) {
         try {
             showMessage(question);
             int a = scanner.nextInt();
